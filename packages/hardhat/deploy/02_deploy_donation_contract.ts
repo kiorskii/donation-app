@@ -6,13 +6,11 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     const { deploy } = deployments;
     const { deployer } = await getNamedAccounts();
 
-    const se2TokenDeployment = await deployments.get("SE2Token");
-    const se2TokenAddress = se2TokenDeployment.address;
+    const se2Token = await deployments.get("SE2Token");
 
-    
     const donationContract = await deploy("DonationContract", {
         from: deployer,
-        args: [se2TokenAddress, deployer], 
+        args: [se2Token.address],
         log: true,
     });
 
@@ -20,4 +18,3 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 };
 export default func;
 func.tags = ["DonationContract"];
-func.dependencies = ["SE2Token"];

@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     DonationContract: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
       abi: [
         {
           inputs: [
@@ -16,50 +16,23 @@ const deployedContracts = {
               name: "_token",
               type: "address",
             },
-            {
-              internalType: "address",
-              name: "initialOwner",
-              type: "address",
-            },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-          ],
-          name: "OwnableInvalidOwner",
-          type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "OwnableUnauthorizedAccount",
-          type: "error",
         },
         {
           anonymous: false,
           inputs: [
             {
               indexed: true,
-              internalType: "address",
-              name: "donor",
-              type: "address",
+              internalType: "uint256",
+              name: "donationId",
+              type: "uint256",
             },
             {
               indexed: true,
               internalType: "address",
-              name: "recipient",
+              name: "donor",
               type: "address",
             },
             {
@@ -69,7 +42,7 @@ const deployedContracts = {
               type: "uint256",
             },
           ],
-          name: "DonationReceived",
+          name: "Donated",
           type: "event",
         },
         {
@@ -77,30 +50,54 @@ const deployedContracts = {
           inputs: [
             {
               indexed: true,
-              internalType: "address",
-              name: "previousOwner",
-              type: "address",
+              internalType: "uint256",
+              name: "donationId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "description",
+              type: "string",
             },
             {
               indexed: true,
               internalType: "address",
-              name: "newOwner",
+              name: "recipient",
               type: "address",
             },
           ],
-          name: "OwnershipTransferred",
+          name: "DonationCreated",
           type: "event",
         },
         {
           inputs: [
             {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
               internalType: "address",
-              name: "_recipient",
+              name: "recipient",
               type: "address",
+            },
+          ],
+          name: "createDonation",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "donationId",
+              type: "uint256",
             },
             {
               internalType: "uint256",
-              name: "_amount",
+              name: "amount",
               type: "uint256",
             },
           ],
@@ -110,13 +107,29 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [],
-          name: "owner",
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "donations",
           outputs: [
             {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
               internalType: "address",
-              name: "",
+              name: "recipient",
               type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "totalDonations",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -124,22 +137,15 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "renounceOwnership",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
+          name: "getDonationsCount",
+          outputs: [
             {
-              internalType: "address",
-              name: "_newToken",
-              type: "address",
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
-          name: "setToken",
-          outputs: [],
-          stateMutability: "nonpayable",
+          stateMutability: "view",
           type: "function",
         },
         {
@@ -147,7 +153,7 @@ const deployedContracts = {
           name: "token",
           outputs: [
             {
-              internalType: "contract IERC20",
+              internalType: "contract ERC20",
               name: "",
               type: "address",
             },
@@ -155,28 +161,11 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "newOwner",
-              type: "address",
-            },
-          ],
-          name: "transferOwnership",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
       ],
-      inheritedFunctions: {
-        owner: "@openzeppelin/contracts/access/Ownable.sol",
-        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
-        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
-      },
+      inheritedFunctions: {},
     },
     SE2Token: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x59b670e9fA9D0A427751Af201D676719a970857b",
       abi: [
         {
           inputs: [],
@@ -352,7 +341,7 @@ const deployedContracts = {
             },
             {
               internalType: "uint256",
-              name: "value",
+              name: "amount",
               type: "uint256",
             },
           ],

@@ -1716,6 +1716,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomiclabs/hardhat-ethers@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@nomiclabs/hardhat-ethers@npm:2.2.3"
+  peerDependencies:
+    ethers: ^5.0.0
+    hardhat: ^2.0.0
+  checksum: 72321317e55eb510306e04c42353c5f7ceb42d086fc76cc740120da6e1635b7ad5bbf23a8d6b02bd590754adcf646618933111624085ab249b1ff3482e773226
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^3.0.0":
   version: 3.0.0
   resolution: "@npmcli/agent@npm:3.0.0"
@@ -7068,7 +7078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:~6.13.2":
+"ethers@npm:^6.13.4, ethers@npm:~6.13.2":
   version: 6.13.4
   resolution: "ethers@npm:6.13.4"
   dependencies:
@@ -8050,7 +8060,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat@npm:~2.22.10":
+"hardhat@npm:^2.22.17, hardhat@npm:~2.22.10":
   version: 2.22.17
   resolution: "hardhat@npm:2.22.17"
   dependencies:
@@ -11903,6 +11913,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.2.3
+    ethers: ^6.13.4
+    hardhat: ^2.22.17
     husky: ~8.0.3
     lint-staged: ~13.2.2
   languageName: unknown

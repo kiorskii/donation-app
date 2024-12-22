@@ -26,6 +26,11 @@ export const menuLinks: HeaderMenuLink[] = [
     icon: <BanknotesIcon className="h-4 w-4" />,
   },
   {
+    label: "Donation",
+    href: "/donation",
+    icon: <BanknotesIcon className="h-4 w-4" />,
+  },
+  {
     label: "Debug Contracts",
     href: "/debug",
     icon: <BugAntIcon className="h-4 w-4" />,
